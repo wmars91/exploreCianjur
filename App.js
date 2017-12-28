@@ -11,7 +11,7 @@ Navigation.startTabBasedApp({
       label: 'One',
       screen: 'example.FirstTabScreen', // this is a registered name for a screen
       icon: require('./img/one.png'),
-      title: 'Screen One'
+      title: 'Explore Cianjur'
     },
     {
       label: 'Two',
