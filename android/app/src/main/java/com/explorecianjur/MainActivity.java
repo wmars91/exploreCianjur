@@ -1,7 +1,10 @@
 package com.explorecianjur;
 
-//import com.facebook.react.ReactActivity;
+import android.os.Bundle; // here
+import com.facebook.react.ReactActivity;
 import com.reactnativenavigation.controllers.SplashActivity;
+import org.devio.rn.splashscreen.SplashScreen;
+
 
 public class MainActivity extends SplashActivity {
 
@@ -13,4 +16,11 @@ public class MainActivity extends SplashActivity {
     // protected String getMainComponentName() {
     //     return "exploreCianjur";
     // }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        SplashScreen.show(this);  // here
+        super.onCreate(savedInstanceState);
+    }
+
+
 }
