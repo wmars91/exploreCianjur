@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-import {Text, View, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import { Container, Header, Content, List, ListItem, Text } from 'native-base';
 
 export default class Food extends Component{
 
@@ -7,11 +8,22 @@ export default class Food extends Component{
         tabBarHidden: true
     }
 
-    render(){
-        return(
-            <View>
-                <Text>Food</Text>
-            </View>
+    render() {
+        var items = ['Simon Mignolet','Nathaniel Clyne','Dejan Lovren','Mama Sakho','Emre Can'];
+        return (
+          <Container>
+            <Content>
+              <List 
+                horizontal={true}
+                dataArray={items}
+                renderRow={(item) =>
+                  <ListItem>
+                    <Text>{item}</Text>
+                  </ListItem>
+                }>
+              </List>
+            </Content>
+          </Container>
         );
-    }
+      }
 }

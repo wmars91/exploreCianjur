@@ -5,6 +5,7 @@ import SecondTabScreen from './SecondTabScreen';
 import Tours from './Tours';
 import Food from './Food';
 import Hotel from './Hotel';
+import ToursView from './ToursView';
 
 // register all screens of the app (including internal ones)
 export function registerScreens() {
@@ -13,4 +14,5 @@ export function registerScreens() {
   Navigation.registerComponent('example.Food', () => Food);
   Navigation.registerComponent('example.Hotel', () => Hotel);
   Navigation.registerComponent('example.Tours', () => Tours);
+  Navigation.registerComponent('example.ToursView', () => ToursView);
 }
