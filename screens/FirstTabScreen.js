@@ -54,7 +54,7 @@ export default class FirtsTabScreen extends Component{
                     <Card>
                         <TouchableOpacity onPress={ ()=> this.props.navigator.push({
                         screen: 'example.Tours',
-                        title: 'Tours'
+                        title: 'Wisata'
                         }) }>
                             <CardItem>
                             {/* <Icon active name="logo-googleplus" /> */}

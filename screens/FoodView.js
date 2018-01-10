@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Container, Content, Text} from 'native-base';
 import PropTypes from 'prop-types';
 
-class ToursView extends Component{
+class FoodView extends Component{
 
  static navigatorStyle = {
    navBarHidden: true,
@@ -10,19 +10,19 @@ class ToursView extends Component{
  }
 
   render(){
-    const {tours} = this.props;
+    const {foods} = this.props;
     return (
       <Container>
         <Content>
-            <Text>{tours.title}</Text>
+            <Text>{foods.title}</Text>
         </Content>
       </Container>
     )
   }
 }
 
-ToursView.propTypes = {
-    tours: PropTypes.object.isRequired
+FoodView.propTypes = {
+    foods: PropTypes.object.isRequired
 };
 
-export default ToursView;
+export default FoodView;

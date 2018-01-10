@@ -1,22 +1,22 @@
 import React from 'react';
 import {ListItem, Thumbnail, Body, Text} from 'native-base';
 
-export default ToursDetail = ({tours, navigator}) => (
+export default HotelDetail = ({hotels, navigator}) => (
     <ListItem
       onPress={()=>navigator.push({
-        screen: 'example.ToursView',
+        screen: 'example.HotelView',
         passProps: {
-          tours: tours
+            hotels: hotels
         }
       })}
     >
       <Thumbnail
         square
         size={80}
-        source={{ uri: tours.image}}
+        source={{ uri: hotels.image}}
       />
       <Body>
-        <Text note>{tours.title}</Text>
+        <Text note>{hotels.title}</Text>
       </Body>
     </ListItem>
 )

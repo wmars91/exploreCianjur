@@ -15,7 +15,7 @@ export default class Tours extends Component{
     
       componentDidMount(){
         const self = this;
-        axios.get('http://explorecianjur.phdstudio.id/wp-json/wp/v2/posts').then((response)=>{
+        axios.get('http://explorecianjur.phdstudio.id/wp-json/explore/v1/wisata').then((response)=>{
           self.setState({tours: response.data});
         }).catch((error)=>{
           console.log('something went wrong')
