@@ -13,7 +13,7 @@ export default class Hotel extends Component{
         }
       }
     
-      componentDidMount(){
+      componentWillMount(){
         const self = this;
         axios.get('http://explorecianjur.phdstudio.id/wp-json/explore/v1/hotel').then((response)=>{
           self.setState({hotels: response.data});

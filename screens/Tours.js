@@ -13,7 +13,7 @@ export default class Tours extends Component{
         }
       }
     
-      componentDidMount(){
+      componentWillMount(){
         const self = this;
         axios.get('http://explorecianjur.phdstudio.id/wp-json/explore/v1/wisata').then((response)=>{
           self.setState({tours: response.data});

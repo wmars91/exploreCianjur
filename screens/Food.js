@@ -13,7 +13,7 @@ export default class Food extends Component{
         }
       }
     
-      componentDidMount(){
+      componentWillMount(){
         const self = this;
         axios.get('http://explorecianjur.phdstudio.id/wp-json/explore/v1/kuliner').then((response)=>{
           self.setState({foods: response.data});
