@@ -5,19 +5,11 @@ import { registerScreens } from './screens';
 registerScreens(); // this is where you register all of your app's screens
 
 // start the app
-Navigation.startTabBasedApp({
-  tabs: [
-    {
-      label: 'Home',
-      screen: 'example.FirstTabScreen', // this is a registered name for a screen
-      icon: require('./img/Home.png'),
-      title: 'Explore Cianjur'
-    },
-    {
-      label: 'Inbox',
-      screen: 'example.SecondTabScreen',
-      icon: require('./img/Inbox.png'),
-      title: 'Inbox'
-    }
-  ]
+Navigation.startSingleScreenApp({
+  screen: {
+    screen: 'example.FirstTabScreen', // unique ID registered with Navigation.registerScreen
+    title: 'Explore Cianjur', // title of the screen as appears in the nav bar (optional)
+    navigatorStyle: {}, // override the navigator style for the screen, see "Styling the navigator" below (optional)
+    navigatorButtons: {} // override the nav buttons for the screen, see "Adding buttons to the navigator" below (optional)
+  }
 });

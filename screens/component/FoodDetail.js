@@ -1,23 +1,26 @@
 import React from 'react';
 import {ListItem, Thumbnail, Body, Text} from 'native-base';
-import { Tile } from 'react-native-elements';
+import { Tile,Image,View,Title,TouchableOpacity } from '@shoutem/ui';
 
 export default FoodDetail = ({foods, navigator}) => (
-    <ListItem
-      onPress={()=>navigator.push({
-        screen: 'example.FoodView',
-        passProps: {
-            foods: foods
-        }
-      })}
-    >
-      <Tile
-        imageSrc={require('./img/1.jpg')}
-        title={foods.title}
-        // icon={{name: 'play-circle', type: 'font-awesome'}}  // optional
-        titleStyle={{fontSize: 20}}
-        featured
-        activeOpacity={1}
-        contentContainerStyle={{height: 70}}/>
-    </ListItem>
+  <ListItem>
+      <TouchableOpacity
+        onPress={()=>navigator.push({
+          screen: 'example.FoodView',
+          passProps: {
+              foods: foods
+          }
+        })}
+      >
+      <Tile>
+        <Image
+          styleName="large-banner"
+          source={{ uri: foods.image }}
+        />
+        <View styleName="content">
+          <Title>{foods.title}</Title>
+        </View>
+      </Tile>
+    </TouchableOpacity>
+  </ListItem>
 )
