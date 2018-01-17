@@ -1,22 +1,26 @@
 import React from 'react';
 import {ListItem, Thumbnail, Body, Text} from 'native-base';
+import { Tile,Image,View,Title,TouchableOpacity } from '@shoutem/ui';
 
 export default HotelDetail = ({hotels, navigator}) => (
-    <ListItem
+  <ListItem>
+    <TouchableOpacity
       onPress={()=>navigator.push({
         screen: 'example.HotelView',
         passProps: {
-            hotels: hotels
+          hotels: hotels
         }
       })}
     >
-      <Thumbnail
-        square
-        size={80}
-        source={{ uri: hotels.image}}
-      />
-      <Body>
-        <Text note>{hotels.title}</Text>
-      </Body>
-    </ListItem>
+      <Tile>
+        <Image
+          styleName="large-banner"
+          source={{ uri: hotels.image }}
+        />
+        <View styleName="content">
+          <Title>{hotels.title}</Title>
+        </View>
+      </Tile>
+    </TouchableOpacity>
+  </ListItem>
 )

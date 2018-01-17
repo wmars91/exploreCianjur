@@ -67,7 +67,7 @@ export default class FirtsTabScreen extends Component{
                         </TouchableOpacity>
                         <TouchableOpacity onPress={ ()=> this.props.navigator.push({
                         screen: 'example.Food',
-                        title: 'Food'
+                        title: 'Kuliner'
                         }) }>
                             <CardItem>
                             <Image source={require('../img/Food.png')} style={{width: 30, height: 30, marginRight: 10}} />
@@ -90,6 +90,7 @@ export default class FirtsTabScreen extends Component{
                             </CardItem>
                         </TouchableOpacity>
                     </Card>
+
                 </Content>
           </Container>
         );

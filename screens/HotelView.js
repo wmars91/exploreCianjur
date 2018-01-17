@@ -1,20 +1,35 @@
 import React, {Component} from 'react';
-import {Container, Content, Text} from 'native-base';
+import {StyleSheet} from 'react-native';
+import {Container, Content,Text,List,ListItem} from 'native-base';
 import PropTypes from 'prop-types';
+import { Image,View,Subtitle } from '@shoutem/ui';
 
 class HotelView extends Component{
-
- static navigatorStyle = {
-   navBarHidden: true,
-   tabBarHidden: true
- }
-
+ 
+  static navigatorStyle = {
+    navBarTransparent: true,
+    drawUnderNavBar: true,
+    navBarTextColor: '#ffffff',
+    navBarButtonColor: '#ffffff'
+  }
+ 
   render(){
     const {hotels} = this.props;
     return (
       <Container>
         <Content>
-            <Text>{hotels.title}</Text>
+          <Image
+            styleName="large"
+            source={{ uri: hotels.image }}
+          />
+          <List>
+            <ListItem itemDivider>
+              <Text>{hotels.title}</Text>
+            </ListItem>                    
+            <ListItem >
+              <Text>{hotels.content}</Text>
+            </ListItem>
+        </List>
         </Content>
       </Container>
     )
