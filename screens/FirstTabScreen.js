@@ -1,8 +1,7 @@
 import React,{Component} from 'react';
 import { TouchableOpacity, Image } from 'react-native';
 import { Container, Header, Content, Card, CardItem, Text, Icon, Right } from 'native-base';
-import ImageSlider from 'react-native-image-slider';
-// import SplashScreen from 'react-native-splash-screen';
+import Slideshow from 'react-native-slideshow';
 
 export default class FirtsTabScreen extends Component{
 
@@ -13,10 +12,21 @@ export default class FirtsTabScreen extends Component{
             position: 1,
             interval: null,
             imageList:[
-                'http://wpexplorer-demos.com/status/wp-content/uploads/sites/101/2016/06/jungle-740x340.jpg',
-                'http://explorecianjur.phdstudio.id/wp-content/uploads/2016/06/photo-1465877783223-4eba513e27c6.jpg',
-                'http://explorecianjur.phdstudio.id/wp-content/uploads/2016/06/peppers.jpg'
-            ]
+                {
+                  title: 'Title 1',
+                  caption: 'Caption 1',
+                  url: 'http://wpexplorer-demos.com/status/wp-content/uploads/sites/101/2016/06/jungle-740x340.jpg',
+                }, {
+                  title: 'Title 2',
+                  caption: 'Caption 2',
+                  url: 'http://explorecianjur.phdstudio.id/wp-content/uploads/2016/06/photo-1465877783223-4eba513e27c6.jpg',
+                }, 
+                {
+                  title: 'Title 3',
+                  caption: 'Caption 3',
+                  url: 'http://explorecianjur.phdstudio.id/wp-content/uploads/2016/06/peppers.jpg',
+                }
+              ],
         };
     }
 
@@ -27,9 +37,13 @@ export default class FirtsTabScreen extends Component{
     }
 
     componentWillMount() {
-        this.setState({interval: setInterval(() => {
-            this.setState({position: this.state.position === 2 ? 0 : this.state.position + 1});
-        }, 2000)});
+        this.setState({
+            interval: setInterval(() => {
+              this.setState({
+                position: this.state.position === this.state.imageList.length ? 0 : this.state.position + 1
+              });
+            }, 2000)
+        });
     }
 
     componentWillUnmount() {
@@ -46,11 +60,17 @@ export default class FirtsTabScreen extends Component{
         return(
             <Container>
                 <Content>
-                    <ImageSlider 
-                            images={this.state.imageList}
-                            position={this.state.position}
-                            onPositionChanged={position => this.setState({position})}
-                        />
+                    <Slideshow 
+                        onPress={()=> this.props.navigator.push({
+                            screen: 'example.SlideshowView',
+                            passProps: {
+                                imglist : this.state.imageList
+                            }
+                          })}
+                        dataSource={this.state.imageList}
+                        position={this.state.position}
+                        onPositionChanged={position => this.setState({ position })} 
+                    />
                     <Card>
                         <TouchableOpacity onPress={ ()=> this.props.navigator.push({
                         screen: 'example.Tours',
