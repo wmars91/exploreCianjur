@@ -1,7 +1,5 @@
 import { Navigation } from 'react-native-navigation';
-
-import FirstTabScreen from './FirstTabScreen';
-import SecondTabScreen from './SecondTabScreen';
+import Home from './Home';
 import Tours from './Tours';
 import Food from './Food';
 import Hotel from './Hotel';
@@ -12,8 +10,7 @@ import SlideshowView from './SlideshowView';
 
 // register all screens of the app (including internal ones)
 export function registerScreens() {
-  Navigation.registerComponent('example.FirstTabScreen', () => FirstTabScreen);
-  Navigation.registerComponent('example.SecondTabScreen', () => SecondTabScreen);
+  Navigation.registerComponent('example.Home', () => Home);
   Navigation.registerComponent('example.Food', () => Food);
   Navigation.registerComponent('example.Hotel', () => Hotel);
   Navigation.registerComponent('example.Tours', () => Tours);
