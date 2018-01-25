@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import { TouchableOpacity,ListView,FlatList } from 'react-native';
 import { Container, Header, Content, Text, Icon, Right } from 'native-base';
 import Slideshow from 'react-native-slideshow';
-import { Divider,Caption,Image,Title,View,Card,Subtitle } from '@shoutem/ui';
+import { Divider,Caption,Title,View,Card,Subtitle,Image } from '@shoutem/ui';
 
 export default class Home extends Component{
 
@@ -27,27 +27,7 @@ export default class Home extends Component{
                   caption: 'Caption 3',
                   url: 'http://explorecianjur.phdstudio.id/wp-content/uploads/2016/06/peppers.jpg',
                 }
-              ],
-            kategori: [
-                {
-                    image: 'https://image.freepik.com/free-photo/red-pink-tower-blue-hat-old-vintage-camera-and-shells-over-wooden-floor-on-sunshine-blue-sky-and-ocean-background_1421-402.jpg',
-                    title: '     Wisata',
-                    screen: 'example.Tours',
-                    titleHeader: 'Wisata'
-                },
-                {
-                    image: 'https://image.freepik.com/free-photo/table-with-ingredients-to-prepare-italian-pasta_23-2147606548.jpg',
-                    title: '     Kuliner',
-                    screen: 'example.Food',
-                    titleHeader: 'Kuliner'
-                },
-                {
-                    image: 'https://image.freepik.com/free-photo/hotel-bell_1203-2898.jpg',
-                    title: '     Hotel',
-                    screen: 'example.Hotels',
-                    titleHeader: 'Hotel'
-                }
-            ]
+              ]
         };
     }
 
@@ -92,31 +72,109 @@ export default class Home extends Component{
                     <Divider styleName="section-header">
                         <Caption>KATEGORI</Caption>
                     </Divider>
-                    <FlatList 
-                        key="flatList"
-                        horizontal={true}
-                        data={this.state.kategori}
-                        keyExtractor={(item, index) => (`${item}--${index}`)}
-                        renderItem = {({ item, index }) => 
-                            <View>
-                                <TouchableOpacity
-                                    onPress={()=> this.props.navigator.push({
-                                        screen: item.screen,
-                                        title: item.titleHeader
-                                      })}
-                                >
-                                    <Card> 
-                                        <Image
-                                            styleName="medium-square"
-                                            source={{uri: item.image }}
-                                        />
-                                        <View styleName="content">
-                                            <Subtitle>{item.title}</Subtitle>
-                                        </View>
-                                    </Card>
-                                </TouchableOpacity>
+                   
+                    <View style={{
+                        flex: 1,
+                        flexDirection: 'row',
+                        flexWrap: 'wrap',
+                        justifyContent: 'center',
+                    }}>
+
+                        <TouchableOpacity onPress={()=> this.props.navigator.push({
+                            screen: 'example.Tours',
+                            title: 'Wisata'
+                        })}>
+                           <View style={{
+                               width: 150, 
+                               height: 150, 
+                               backgroundColor: 'powderblue', 
+                               margin: 5, 
+                               justifyContent: 'center',
+                               alignItems: 'center',
+                            }}>
+                                <Image
+                                    style={{width: 150, height: 150}}
+                                    source={{ uri: 'https://image.freepik.com/free-photo/red-pink-tower-blue-hat-old-vintage-camera-and-shells-over-wooden-floor-on-sunshine-blue-sky-and-ocean-background_1421-402.jpg'}}
+                                />
+                                <View style={{
+                                    position: 'absolute',
+                                    justifyContent: 'center'
+                                }}>
+                                   <Title styleName="md-gutter-top">Wisata</Title>
+                                </View>
+                           </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={()=> this.props.navigator.push({
+                            screen: 'example.Food',
+                            title: 'Kuliner'
+                        })}>
+                            <View style={{
+                                width: 150, 
+                                height: 150, 
+                                backgroundColor: 'skyblue', 
+                                margin: 5, 
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            }}>
+                                <Image
+                                    style={{width: 150, height: 150}}
+                                    source={{ uri: 'https://image.freepik.com/free-photo/table-with-ingredients-to-prepare-italian-pasta_23-2147606548.jpg'}}
+                                />
+                                <View style={{
+                                    position: 'absolute',
+                                    justifyContent: 'center'
+                                }}>
+                                   <Title styleName="md-gutter-top">Kuliner</Title>
+                                </View>
                             </View>
-                    }/>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={()=> this.props.navigator.push({
+                            screen: 'example.Hotel',
+                            title: 'Hotel'
+                        })}>
+                            <View style={{
+                                width: 150, 
+                                height: 150, 
+                                backgroundColor: 'steelblue', 
+                                margin: 5, 
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            }}>
+                                <Image
+                                    style={{width: 150, height: 150}}
+                                    source={{ uri: 'https://image.freepik.com/free-photo/hotel-bell_1203-2898.jpg'}}
+                                />
+                                <View style={{
+                                    position: 'absolute',
+                                    justifyContent: 'center'
+                                }}>
+                                   <Title styleName="md-gutter-top">Hotel</Title>
+                                </View>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <View style={{
+                                width: 150, 
+                                height: 150, 
+                                backgroundColor: 'cadetblue', 
+                                margin: 5, 
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                            }}>
+                                <Image
+                                    style={{width: 150, height: 150}}
+                                    source={{ uri: 'https://image.freepik.com/free-photo/close-up-of-woman-using-a-laptop_1098-3563.jpg'}}
+                                />
+                                <View style={{
+                                    position: 'absolute',
+                                    justifyContent: 'center'
+                                }}>
+                                   <Title styleName="md-gutter-top">Contributor</Title>
+                                </View>
+                            </View>
+                        </TouchableOpacity>
+            
+                    </View>
 
                 </Content>
           </Container>

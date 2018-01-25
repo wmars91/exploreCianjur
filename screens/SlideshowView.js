@@ -24,7 +24,7 @@ class SlideshowView extends Component{
           />
           <List>
             <ListItem itemDivider>
-              <Text>{imglist.title}</Text>
+              <Text>Title</Text>
             </ListItem>                    
             <ListItem >
               <Text>Caption</Text>
