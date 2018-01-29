@@ -14,20 +14,20 @@ class ToursView extends Component{
   }
 
   render(){
-    const {tours} = this.props;
+    const {data} = this.props;
     return (
       <Container>
         <Content>
           <Image
             styleName="large"
-            source={{ uri: tours.image }}
+            source={{ uri: data.image }}
           />
           <List>
             <ListItem itemDivider>
-              <Text>{tours.title}</Text>
+              <Text>{data.title}</Text>
             </ListItem>                    
             <ListItem >
-              <Text>{tours.content}</Text>
+              <Text>{data.content}</Text>
             </ListItem>
         </List>
         </Content>
@@ -37,7 +37,7 @@ class ToursView extends Component{
 }
 
 ToursView.propTypes = {
-    tours: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired
 };
 
 export default ToursView;

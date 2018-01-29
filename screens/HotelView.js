@@ -14,20 +14,20 @@ class HotelView extends Component{
   }
  
   render(){
-    const {hotels} = this.props;
+    const {data} = this.props;
     return (
       <Container>
         <Content>
           <Image
             styleName="large"
-            source={{ uri: hotels.image }}
+            source={{ uri: data.image }}
           />
           <List>
             <ListItem itemDivider>
-              <Text>{hotels.title}</Text>
+              <Text>{data.title}</Text>
             </ListItem>                    
             <ListItem >
-              <Text>{hotels.content}</Text>
+              <Text>{data.content}</Text>
             </ListItem>
         </List>
         </Content>
@@ -37,7 +37,7 @@ class HotelView extends Component{
 }
 
 HotelView.propTypes = {
-    hotels: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired
 };
 
 export default HotelView;

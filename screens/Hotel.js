@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import {View, StyleSheet, FlatList} from 'react-native';
 import {Container, Header, Left, Right, Content, Body, Text, List} from 'native-base';
 import axios from 'axios';
-import HotelDetail from './component/HotelDetail';
+import ListDetail from './component/ListDetail';
 
 export default class Hotel extends Component{
 
@@ -43,7 +43,7 @@ export default class Hotel extends Component{
                         keyExtractor={(item, index) => (`${item}--${index}`)}
                         renderItem = {({ item, index }) => 
                             <View>
-                                <ToursDetail key={index} tours={item} {...this.props}/>
+                                <ListDetail key={index} data={item} {...this.props}/>
                             </View>
                     }/>
                 </Content>

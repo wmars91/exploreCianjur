@@ -14,20 +14,20 @@ class FoodView extends Component{
   }
 
   render(){
-    const {foods} = this.props;
+    const {data} = this.props;
     return (
       <Container>
         <Content>
           <Image
             styleName="large"
-            source={{ uri: foods.image }}
+            source={{ uri: data.image }}
           />
           <List>
             <ListItem itemDivider>
-              <Text>{foods.title}</Text>
+              <Text>{data.title}</Text>
             </ListItem>                    
             <ListItem >
-              <Text>{foods.content}</Text>
+              <Text>{data.content}</Text>
             </ListItem>
         </List>
         </Content>
@@ -37,7 +37,7 @@ class FoodView extends Component{
 }
 
 FoodView.propTypes = {
-    foods: PropTypes.object.isRequired
+    data: PropTypes.object.isRequired
 };
 
 

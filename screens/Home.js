@@ -1,8 +1,8 @@
 import React,{Component} from 'react';
-import { TouchableOpacity,ListView,FlatList } from 'react-native';
+import { TouchableOpacity,ListView,FlatList,StyleSheet,View } from 'react-native';
 import { Container, Header, Content, Text, Icon, Right } from 'native-base';
 import Slideshow from 'react-native-slideshow';
-import { Divider,Caption,Title,View,Card,Subtitle,Image } from '@shoutem/ui';
+import { Divider,Caption,Title,Card,Subtitle,Image } from '@shoutem/ui';
 
 export default class Home extends Component{
 
@@ -70,34 +70,21 @@ export default class Home extends Component{
                         onPositionChanged={position => this.setState({ position })} 
                     />
                     <Divider styleName="section-header">
-                        <Caption>KATEGORI</Caption>
+                        <Caption></Caption>
                     </Divider>
                    
-                    <View style={{
-                        flex: 1,
-                        flexDirection: 'row',
-                        flexWrap: 'wrap',
-                        justifyContent: 'center',
-                    }}>
+                    <View style={styles.container}>
 
                         <TouchableOpacity onPress={()=> this.props.navigator.push({
                             screen: 'example.Tours',
                             title: 'Wisata'
                         })}>
-                           <View style={{
-                               width: 150, 
-                               height: 150, 
-                               backgroundColor: 'powderblue', 
-                               margin: 5, 
-                               justifyContent: 'center',
-                               alignItems: 'center',
-                            }}>
+                           <View style={styles.menu}>
                                 <Image
-                                    style={{width: 150, height: 150}}
-                                    source={{ uri: 'https://image.freepik.com/free-photo/red-pink-tower-blue-hat-old-vintage-camera-and-shells-over-wooden-floor-on-sunshine-blue-sky-and-ocean-background_1421-402.jpg'}}
+                                    // style={{width: 150, height: 150}}
+                                    source={require('../img/wisata64.png')}                                
                                 />
                                 <View style={{
-                                    position: 'absolute',
                                     justifyContent: 'center'
                                 }}>
                                    <Title styleName="md-gutter-top">Wisata</Title>
@@ -108,20 +95,12 @@ export default class Home extends Component{
                             screen: 'example.Food',
                             title: 'Kuliner'
                         })}>
-                            <View style={{
-                                width: 150, 
-                                height: 150, 
-                                backgroundColor: 'skyblue', 
-                                margin: 5, 
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                            }}>
+                            <View style={styles.menu}>
                                 <Image
-                                    style={{width: 150, height: 150}}
-                                    source={{ uri: 'https://image.freepik.com/free-photo/table-with-ingredients-to-prepare-italian-pasta_23-2147606548.jpg'}}
+                                    // style={{width: 150, height: 150}}
+                                    source={require('../img/food64.png')} 
                                 />
                                 <View style={{
-                                    position: 'absolute',
                                     justifyContent: 'center'
                                 }}>
                                    <Title styleName="md-gutter-top">Kuliner</Title>
@@ -132,20 +111,13 @@ export default class Home extends Component{
                             screen: 'example.Hotel',
                             title: 'Hotel'
                         })}>
-                            <View style={{
-                                width: 150, 
-                                height: 150, 
-                                backgroundColor: 'steelblue', 
-                                margin: 5, 
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                            }}>
+                            <View style={styles.menu}>
                                 <Image
-                                    style={{width: 150, height: 150}}
-                                    source={{ uri: 'https://image.freepik.com/free-photo/hotel-bell_1203-2898.jpg'}}
+                                    // style={{width: 150, height: 150}}
+                                    // source={{ uri: 'https://image.freepik.com/free-photo/hotel-bell_1203-2898.jpg'}}
+                                    source={require('../img/hotel64.png')}
                                 />
                                 <View style={{
-                                    position: 'absolute',
                                     justifyContent: 'center'
                                 }}>
                                    <Title styleName="md-gutter-top">Hotel</Title>
@@ -153,20 +125,12 @@ export default class Home extends Component{
                             </View>
                         </TouchableOpacity>
                         <TouchableOpacity>
-                            <View style={{
-                                width: 150, 
-                                height: 150, 
-                                backgroundColor: 'cadetblue', 
-                                margin: 5, 
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                            }}>
+                            <View style={styles.menu}>
                                 <Image
-                                    style={{width: 150, height: 150}}
-                                    source={{ uri: 'https://image.freepik.com/free-photo/close-up-of-woman-using-a-laptop_1098-3563.jpg'}}
+                                    // style={{width: 150, height: 150}}
+                                    source={require('../img/picture.png')}
                                 />
                                 <View style={{
-                                    position: 'absolute',
                                     justifyContent: 'center'
                                 }}>
                                    <Title styleName="md-gutter-top">Contributor</Title>
@@ -181,3 +145,23 @@ export default class Home extends Component{
         );
     }
 }
+
+const styles = StyleSheet.create({
+    container : {
+        flex: 1,
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+    },
+    menu : {
+        width: 150, 
+        height: 150, 
+        // backgroundColor: '#4CC7F3', 
+        margin: 3, 
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 4,
+        borderWidth: 1,
+        borderColor: '#d6d7da',
+    }
+});
