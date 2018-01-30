@@ -20,7 +20,7 @@ export default ListDetail = ({data, navigator}) => (
   }}>
     <TouchableOpacity
       onPress={()=>navigator.push({
-        screen: 'example.ToursView',
+        screen: 'example.DetailView',
         passProps: {
           data: data
         }

@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import { TouchableOpacity,ListView,FlatList,StyleSheet,View } from 'react-native';
 import { Container, Header, Content, Text, Icon, Right } from 'native-base';
 import Slideshow from 'react-native-slideshow';
-import { Divider,Caption,Title,Card,Subtitle,Image } from '@shoutem/ui';
+import { Divider,Caption,Title,Image } from '@shoutem/ui';
 
 export default class Home extends Component{
 

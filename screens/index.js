@@ -3,7 +3,7 @@ import Home from './Home';
 import Tours from './Tours';
 import Food from './Food';
 import Hotel from './Hotel';
-import ToursView from './ToursView';
+import DetailView from './DetailView';
 import HotelView from './HotelView';
 import FoodView from './FoodView';
 import SlideshowView from './SlideshowView';
@@ -14,7 +14,7 @@ export function registerScreens() {
   Navigation.registerComponent('example.Food', () => Food);
   Navigation.registerComponent('example.Hotel', () => Hotel);
   Navigation.registerComponent('example.Tours', () => Tours);
-  Navigation.registerComponent('example.ToursView', () => ToursView);
+  Navigation.registerComponent('example.DetailView', () => DetailView);
   Navigation.registerComponent('example.HotelView', () => HotelView);
   Navigation.registerComponent('example.FoodView', () => FoodView);
   Navigation.registerComponent('example.SlideshowView', () => SlideshowView);
