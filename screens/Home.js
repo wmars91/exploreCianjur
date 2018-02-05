@@ -3,6 +3,7 @@ import { TouchableOpacity,ListView,FlatList,StyleSheet,View } from 'react-native
 import { Container, Header, Content, Text, Icon, Right } from 'native-base';
 import Slideshow from 'react-native-slideshow';
 import { Divider,Caption,Title,Image } from '@shoutem/ui';
+import axios from 'axios';
 
 export default class Home extends Component{
 
@@ -12,22 +13,7 @@ export default class Home extends Component{
         this.state = {
             position: 1,
             interval: null,
-            imageList:[
-                {
-                  title: 'Title 1',
-                  caption: 'Caption 1',
-                  url: 'http://wpexplorer-demos.com/status/wp-content/uploads/sites/101/2016/06/jungle-740x340.jpg',
-                }, {
-                  title: 'Title 2',
-                  caption: 'Caption 2',
-                  url: 'http://explorecianjur.phdstudio.id/wp-content/uploads/2016/06/photo-1465877783223-4eba513e27c6.jpg',
-                }, 
-                {
-                  title: 'Title 3',
-                  caption: 'Caption 3',
-                  url: 'http://explorecianjur.phdstudio.id/wp-content/uploads/2016/06/peppers.jpg',
-                }
-              ]
+            SLideShowData: []
         };
     }
 
@@ -38,10 +24,17 @@ export default class Home extends Component{
     }
 
     componentWillMount() {
+        const self = this;
+        axios.get('http://explorecianjur.phdstudio.id/wp-json/explore/v1/featured').then((response)=>{
+          self.setState({SLideShowData: response.data});
+        }).catch((error)=>{
+          console.log('something went wrong')
+          console.log(error)
+        })
         this.setState({
             interval: setInterval(() => {
               this.setState({
-                position: this.state.position === this.state.imageList.length ? 0 : this.state.position + 1
+                position: this.state.position === this.state.SLideShowData.length ? 0 : this.state.position + 1
               });
             }, 2000)
         });
@@ -63,9 +56,12 @@ export default class Home extends Component{
                 <Content>
                     <Slideshow 
                         onPress={()=> this.props.navigator.push({
-                            screen: 'example.SlideshowView'
+                            screen: 'example.SlideshowView',
+                            passProps: {
+                                SLideShowData: SLideShowData
+                              }
                           })}
-                        dataSource={this.state.imageList}
+                        dataSource={this.state.SLideShowData}
                         position={this.state.position}
                         onPositionChanged={position => this.setState({ position })} 
                     />

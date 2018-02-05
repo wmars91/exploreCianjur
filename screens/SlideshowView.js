@@ -14,17 +14,17 @@ class SlideshowView extends Component{
   }
 
   render(){
-    const {imglist} = this.props;
+    const {SLideShowData} = this.props;
     return (
       <Container>
         <Content>
           <Image
             styleName="large"
-            source={{ uri: 'http://wpexplorer-demos.com/status/wp-content/uploads/sites/101/2016/06/jungle-740x340.jpg' }}
+            source={{ uri: SLideShowData.image }}
           />
           <List>
             <ListItem itemDivider>
-              <Text>Title</Text>
+              <Text>{SLideShowData.title}</Text>
             </ListItem>                    
             <ListItem >
               <Text>Caption</Text>
@@ -37,7 +37,7 @@ class SlideshowView extends Component{
 }
 
 SlideshowView.propTypes = {
-  imglist: PropTypes.array.isRequired
+  SLideShowData: PropTypes.array.isRequired
 };
 
 export default SlideshowView;

@@ -1,11 +1,12 @@
-import React, {Component} from 'react';
-import {StyleSheet, TouchableOpacity, Linking} from 'react-native';
-import {Container, Content,Text,List,ListItem, Left, Body, Right, Icon, Button} from 'native-base';
+import React, { Component } from 'react';
+import { StyleSheet, TouchableOpacity, Linking, ScrollView, Dimensions } from 'react-native';
+import { Container, Content, Text, List, ListItem, Left, Body, Right, Icon, Button } from 'native-base';
 import PropTypes from 'prop-types';
-import { Image,View,Subtitle } from '@shoutem/ui';
+import { Image, View, Subtitle } from '@shoutem/ui';
 import openMap from 'react-native-open-maps';
+import HTML from 'react-native-render-html';
 
-class DetailView extends Component{
+class DetailView extends Component {
 
   static navigatorStyle = {
     navBarTransparent: true,
@@ -13,9 +14,9 @@ class DetailView extends Component{
     navBarTextColor: '#ffffff',
     navBarButtonColor: '#ffffff'
   }
-  
-  render(){
-    const {data} = this.props;
+
+  render() {
+    const { data } = this.props;
     return (
       <Container>
         <Content>
@@ -31,42 +32,45 @@ class DetailView extends Component{
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-add" />
+                <Icon name="call" style={{fontSize: 20, color: '#4CC7F3'}}/>
               </Left>
               <Body>
-                <Text>{data.telp}</Text>
+                <Text style={{fontSize: 15, color: '#4CC7F3'}}>{data.telp}</Text>
               </Body>
-              <Right/>
-            </ListItem>  
+              <Right />
+            </ListItem>
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-add" />
+                <Icon name="paper-plane" style={{fontSize: 20, color: '#4CC7F3'}} />
               </Left>
               <Body>
-              <Button transparent info onPress={()=>{ Linking.openURL('http://explorecianjur.phdstudio.id/')}}>
-                <Text>{data.website}</Text>
-              </Button>
+                <TouchableOpacity onPress={() => { Linking.openURL('http://explorecianjur.phdstudio.id/') }}>
+                  <Text style={{fontSize: 15, color: '#4CC7F3'}}>{data.website}</Text>
+                </TouchableOpacity>
               </Body>
-              <Right/>
-            </ListItem> 
+              <Right />
+            </ListItem>
 
             <ListItem icon>
               <Left>
-                <Icon name="ios-add" />
+                <Icon name="map" style={{fontSize: 20, color: '#4CC7F3'}} />
               </Left>
               <Body>
-              <Button transparent info onPress={()=>{
-                openMap({ latitude: data.latitude, longitude: data.longitude });  
-              }}>
-                <Text>Lihat Map</Text>
-              </Button>
+                <TouchableOpacity onPress={() => {
+                  openMap({ latitude: data.latitude, longitude: data.longitude });
+                }}>
+                  <Text style={{fontSize: 15, color: '#4CC7F3'}}>Lihat Map</Text>
+                </TouchableOpacity>
               </Body>
-              <Right/>
-            </ListItem> 
-           
+              <Right />
+            </ListItem>
+
             <ListItem >
-              <Text>{data.content}</Text>
+              {/* <Text>{data.content}</Text> */}
+              <ScrollView style={{ flex: 1 }}>
+                <HTML html={data.content} />
+              </ScrollView>
             </ListItem>
 
           </List>
@@ -77,7 +81,7 @@ class DetailView extends Component{
 }
 
 DetailView.propTypes = {
-    data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired
 };
 
 export default DetailView;
